@@ -7,16 +7,17 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.lab_01.codes.service.Resolve_queue_service;
+import com.lab_01.codes.service.ResolveQueryService;
 
 @RestController
-public class REST_controller {
+public class RESTController {
     @Autowired
-    private Resolve_queue_service translator;
+    private ResolveQueryService translator;
 
     @GetMapping("/getTranslation")
-    public List<String> getTranslation(@RequestParam String srcL, @RequestParam String targetL, @RequestParam String text) {
-        return translator.get_translate(srcL, targetL, text);
+    public List<String> getTranslationResponse(@RequestParam String srcL, 
+            @RequestParam String targetL, @RequestParam String text) {
+        return translator.getTranslation(srcL, targetL, text);
     }
 
 }
